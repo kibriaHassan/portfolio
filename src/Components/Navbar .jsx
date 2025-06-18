@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, User, Clipboard, Code, Mail } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,30 +33,68 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Backdrop */}
+      {/* Transparent Click Overlay: sidebar open হলে sidebar ছাড়া বাকী জায়গায় ক্লিক করলে sidebar বন্ধ হবে */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-30" onClick={toggleMenu}></div>
+        <div
+          className="fixed inset-0 z-40 bg-transparent"
+          onClick={toggleMenu}
+        />
       )}
 
-      {/* Mobile Sidebar */}
+      {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white transform z-40 transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-16 left-0 h-[calc(100vh-4rem)] w-64
+          bg-gradient-to-b from-sky-100 to-blue-50 border-r border-blue-200
+          text-gray-900 shadow-2xl rounded-r-3xl p-6
+          transition-transform duration-300 ease-in-out z-50
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
-        <div className="p-6 space-y-6 text-sm font-medium">
-          <a href="#home" className="block hover:text-blue-400" onClick={toggleMenu}>Home</a>
-          <a href="#about" className="block hover:text-blue-400" onClick={toggleMenu}>About</a>
-          <a href="#skills" className="block hover:text-blue-400" onClick={toggleMenu}>Skills</a>
-          <a href="#projects" className="block hover:text-blue-400" onClick={toggleMenu}>Projects</a>
-          <a href="#contact" className="block hover:text-blue-400" onClick={toggleMenu}>Contact</a>
-        </div>
+        <nav className="space-y-6 text-base font-medium">
+          <a
+            href="#home"
+            onClick={toggleMenu}
+            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
+          >
+            <Home className="w-5 h-5" />
+            Home
+          </a>
+          <a
+            href="#about"
+            onClick={toggleMenu}
+            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
+          >
+            <User className="w-5 h-5" />
+            About
+          </a>
+          <a
+            href="#skills"
+            onClick={toggleMenu}
+            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
+          >
+            <Clipboard className="w-5 h-5" />
+            Skills
+          </a>
+          <a
+            href="#projects"
+            onClick={toggleMenu}
+            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
+          >
+            <Code className="w-5 h-5" />
+            Projects
+          </a>
+          <a
+            href="#contact"
+            onClick={toggleMenu}
+            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
+          >
+            <Mail className="w-5 h-5" />
+            Contact
+          </a>
+        </nav>
       </div>
 
       {/* Spacer for fixed navbar */}
       <div className="h-16"></div>
-
-    
     </>
   );
 };
