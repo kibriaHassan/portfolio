@@ -1,0 +1,60 @@
+/* Background gradient stars */
+.space-bg {
+  background: radial-gradient(ellipse at bottom, #0a0a2a 0%, #000 100%);
+  position: absolute;
+  overflow: hidden;
+}
+
+/* Create moving stars */
+.space-bg::before,
+.space-bg::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+  animation: moveStars 100s linear infinite;
+  opacity: 0.6;
+}
+
+.space-bg::after {
+  animation-duration: 160s;
+  opacity: 0.3;
+}
+
+/* Rotating planets (floating animation) */
+.space-bg::before {
+  background-image: none;
+}
+
+.space-bg::after {
+  background: radial-gradient(circle at 30% 40%, #1e90ff 5%, transparent 10%),
+              radial-gradient(circle at 70% 80%, #ff6347 6%, transparent 12%),
+              radial-gradient(circle at 50% 10%, #ffd700 4%, transparent 10%),
+              radial-gradient(circle at 20% 90%, #32cd32 5%, transparent 10%);
+  background-repeat: no-repeat;
+  background-size: 200px 200px, 150px 150px, 100px 100px, 120px 120px;
+  animation: rotatePlanets 80s linear infinite;
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes moveStars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes rotatePlanets {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
