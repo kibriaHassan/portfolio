@@ -10,19 +10,31 @@ const Navbar = () => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
 
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    if (isOpen) toggleMenu(); // sidebar open থাকলে sidebar বন্ধ করবে
+  };
+
   return (
     <>
       {/* Navbar */}
       <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
           <div className="text-2xl font-bold text-blue-600">Golam Kibria Hassan</div>
+
+          {/* Desktop Links */}
           <div className="hidden md:flex space-x-6 text-gray-700 font-medium">
-            <a href="#home" className="hover:text-blue-500 transition">Home</a>
-            <a href="#about" className="hover:text-blue-500 transition">About</a>
-            <a href="#skills" className="hover:text-blue-500 transition">Skills</a>
-            <a href="#projects" className="hover:text-blue-500 transition">Projects</a>
-            <a href="#contact" className="hover:text-blue-500 transition">Contact</a>
+            <button onClick={() => handleScroll("home")} className="hover:text-blue-500 transition">Home</button>
+            <button onClick={() => handleScroll("about")} className="hover:text-blue-500 transition">About</button>
+            <button onClick={() => handleScroll("skills")} className="hover:text-blue-500 transition">Skills</button>
+            <button onClick={() => handleScroll("projects")} className="hover:text-blue-500 transition">Projects</button>
+            <button onClick={() => handleScroll("contact")} className="hover:text-blue-500 transition">Contact</button>
           </div>
+
+          {/* Mobile Hamburger */}
           <button
             className="md:hidden text-gray-700 focus:outline-none"
             onClick={toggleMenu}
@@ -33,12 +45,9 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Transparent Click Overlay: sidebar open হলে sidebar ছাড়া বাকী জায়গায় ক্লিক করলে sidebar বন্ধ হবে */}
+      {/* Overlay */}
       {isOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-transparent"
-          onClick={toggleMenu}
-        />
+        <div className="fixed inset-0 z-40 bg-transparent" onClick={toggleMenu} />
       )}
 
       {/* Sidebar */}
@@ -50,46 +59,21 @@ const Navbar = () => {
           ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <nav className="space-y-6 text-base font-medium">
-          <a
-            href="#home"
-            onClick={toggleMenu}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
-          >
-            <Home className="w-5 h-5" />
-            Home
-          </a>
-          <a
-            href="#about"
-            onClick={toggleMenu}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
-          >
-            <User className="w-5 h-5" />
-            About
-          </a>
-          <a
-            href="#skills"
-            onClick={toggleMenu}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
-          >
-            <Clipboard className="w-5 h-5" />
-            Skills
-          </a>
-          <a
-            href="#projects"
-            onClick={toggleMenu}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
-          >
-            <Code className="w-5 h-5" />
-            Projects
-          </a>
-          <a
-            href="#contact"
-            onClick={toggleMenu}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition cursor-pointer select-none"
-          >
-            <Mail className="w-5 h-5" />
-            Contact
-          </a>
+          <button onClick={() => handleScroll("home")} className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition w-full text-left">
+            <Home className="w-5 h-5" /> Home
+          </button>
+          <button onClick={() => handleScroll("about")} className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition w-full text-left">
+            <User className="w-5 h-5" /> About
+          </button>
+          <button onClick={() => handleScroll("skills")} className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition w-full text-left">
+            <Clipboard className="w-5 h-5" /> Skills
+          </button>
+          <button onClick={() => handleScroll("projects")} className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition w-full text-left">
+            <Code className="w-5 h-5" /> Projects
+          </button>
+          <button onClick={() => handleScroll("contact")} className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-200 hover:text-blue-800 transition w-full text-left">
+            <Mail className="w-5 h-5" /> Contact
+          </button>
         </nav>
       </div>
 

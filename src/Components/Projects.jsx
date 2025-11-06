@@ -34,7 +34,7 @@ const Projects = () => {
   const visibleProjects = showAll ? projects : projects.slice(0, 6);
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section id="projects" className="relative py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#020617] via-[#030b3d] to-[#000000]">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-40 animate-[moveStars_60s_linear_infinite]" />
@@ -48,25 +48,13 @@ const Projects = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {visibleProjects.map((project, i) => (
-            <div
-              key={i}
-              className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-[0_0_25px_rgba(0,0,50,0.4)] hover:shadow-[0_0_40px_rgba(0,128,255,0.6)] transition-all duration-500 overflow-hidden hover:-translate-y-2"
-            >
+            <div key={i} className="group backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-[0_0_25px_rgba(0,0,50,0.4)] hover:shadow-[0_0_40px_rgba(0,128,255,0.6)] transition-all duration-500 overflow-hidden hover:-translate-y-2">
               <div className="overflow-hidden rounded-t-2xl">
-                <img
-                  src={project.img}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                <img src={project.img} alt={project.title} className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-blue-400 mb-3">{project.title}</h3>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-blue-600/80 text-white hover:bg-blue-700 font-medium px-5 py-2.5 rounded-full transition duration-300"
-                >
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600/80 text-white hover:bg-blue-700 font-medium px-5 py-2.5 rounded-full transition duration-300">
                   🔗 View Project
                 </a>
               </div>
@@ -75,10 +63,7 @@ const Projects = () => {
         </div>
 
         <div className="text-center mt-10">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 text-white hover:opacity-90 transition duration-300"
-          >
+          <button onClick={() => setShowAll(!showAll)} className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 text-white hover:opacity-90 transition duration-300">
             {showAll ? "See Less" : "See More"}
           </button>
         </div>
