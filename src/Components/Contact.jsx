@@ -10,7 +10,6 @@ const Contact = () => {
           I'm always open to discussing new opportunities, exciting projects, or collaborations.
           Whether it's a job offer, freelance work, or just a hello — feel free to reach out!
         </p>
-
         <div className="flex justify-center gap-4 flex-wrap mb-8">
           <a
             href="mailto:kibriahassan3500@gmail.com"

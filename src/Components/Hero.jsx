@@ -19,7 +19,6 @@ const Hero = () => {
           animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
         }`}
       >
-        {/* Left: Text Content */}
         <div className="text-center md:text-left flex-1 font-libre">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-800 dark:text-white leading-tight mb-4">
             🌟 Alhamdulillah! I'm{" "}

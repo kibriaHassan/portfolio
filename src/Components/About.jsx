@@ -14,8 +14,6 @@ const About = () => {
           <span className="text-indigo-600 font-semibold">Android App Developer</span> from Bangladesh.
           I specialize in building dynamic, responsive web applications and Android apps using modern technologies.
         </p>
-
-        {/* 🎓 Education */}
         <div className="mb-10">
           <h3 className="text-2xl font-semibold text-blue-600 mb-4">🎓 Education</h3>
           <div className="overflow-x-auto">

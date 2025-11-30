@@ -5,7 +5,6 @@
   overflow: hidden;
 }
 
-/* Create moving stars */
 .space-bg::before,
 .space-bg::after {
   content: "";

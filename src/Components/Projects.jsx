@@ -35,7 +35,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="relative py-24 overflow-hidden">
-      {/* Background */}
+     
       <div className="absolute inset-0 bg-gradient-to-br from-[#020617] via-[#030b3d] to-[#000000]">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-40 animate-[moveStars_60s_linear_infinite]" />
       </div>
